@@ -54,7 +54,9 @@
     "eslint-plugin-n8n-nodes-base": "^1.16.3",
     "gulp": "^5.0.1",
     "gulp-cli": "^3.1.0",
+    "n8n-workflow": "*",
     "prettier": "^3.5.3",
+    "rimraf": "^6.0.0",
     "typescript": "^5.8.2"
   },
   "peerDependencies": {

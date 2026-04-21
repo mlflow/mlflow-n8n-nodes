@@ -11,7 +11,7 @@ COPY nodes/ ./nodes/
 RUN --mount=type=cache,target=/root/.npm \
     npm config set registry https://npm-proxy.dev.databricks.com && \
     npm config set cache /root/.npm && \
-    npm install --verbose --legacy-peer-deps && \
+    NODE_ENV=development npm install --verbose --legacy-peer-deps --prefer-offline --ignore-scripts && \
     npm run build
 
 
