@@ -4,6 +4,7 @@ import type { BaseMessage } from '@langchain/core/messages';
 import type { LLMResult } from '@langchain/core/outputs';
 import * as mlflow from 'mlflow-tracing';
 import { SpanType } from 'mlflow-tracing';
+import { InMemoryTraceManager } from 'mlflow-tracing/dist/core/trace_manager';
 
 export class MlflowCallbackHandler extends BaseCallbackHandler {
 	name = 'MlflowCallbackHandler';
@@ -31,8 +32,14 @@ export class MlflowCallbackHandler extends BaseCallbackHandler {
 		);
 		const span = mlflow.startSpan({ name: 'ChatOpenAI', spanType: SpanType.CHAT_MODEL, inputs });
 
-		if (this.opts.sessionId) span.setAttribute('mlflow.trace.session', this.opts.sessionId);
-		if (this.opts.userId) span.setAttribute('mlflow.trace.user', this.opts.userId);
+		// Session/user must be set on trace-level metadata, not span attributes,
+		// for MLflow to group traces by session in the UI.
+		const traceObj = InMemoryTraceManager.getInstance().getTrace(span.traceId);
+		if (traceObj) {
+			if (this.opts.sessionId) traceObj.info.traceMetadata['mlflow.trace.session'] = this.opts.sessionId;
+			if (this.opts.userId) traceObj.info.traceMetadata['mlflow.trace.user'] = this.opts.userId;
+		}
+
 		if (this.opts.metadata) span.setAttributes(this.opts.metadata);
 
 		this.spans[runId] = span;
