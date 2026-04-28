@@ -27,9 +27,9 @@ export class MlflowCallbackHandler extends BaseCallbackHandler {
 		messages: BaseMessage[][],
 		runId: string,
 	) {
-		const inputs = messages.map((batch) =>
-			batch.map((m) => ({ role: m._getType(), content: m.content })),
-		);
+		const lastBatch = messages[messages.length - 1] ?? [];
+		const lastHumanMsg = [...lastBatch].reverse().find((m) => m._getType() === 'human');
+		const inputs = lastHumanMsg?.content ?? lastBatch.map((m) => ({ role: m._getType(), content: m.content }));
 		const span = mlflow.startSpan({ name: 'ChatOpenAI', spanType: SpanType.CHAT_MODEL, inputs });
 
 		// Session/user must be set on trace-level metadata, not span attributes,
@@ -46,7 +46,9 @@ export class MlflowCallbackHandler extends BaseCallbackHandler {
 	}
 
 	async handleLLMEnd(output: LLMResult, runId: string) {
-		this.spans[runId]?.end({ outputs: { generations: output.generations } });
+		const firstGen = output.generations[0]?.[0] as any;
+		const outputs = firstGen?.text ?? output.generations;
+		this.spans[runId]?.end({ outputs });
 		delete this.spans[runId];
 	}
 
