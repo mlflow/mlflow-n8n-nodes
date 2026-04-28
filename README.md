@@ -30,3 +30,17 @@ You can now access n8n at http://localhost:5678
 2. **Workflow Setup**: A typical workflow using this node.
 
 ![workflow-example](assets/workflow-example.png?raw=true)
+
+3. **n8n Chat**: An example chat interaction in n8n.
+
+![n8n-chat-example](assets/n8n-chat-example.png?raw=true)
+
+4. **MLflow Trace**: The resulting trace logged in MLflow.
+
+![mlflow-trace1](assets/mlflow-trace1.png?raw=true)
+
+![mlflow-trace2](assets/mlflow-trace2.png?raw=true)
+
+5. **MLflow Session Grouping**: Traces grouped by chat session in MLflow.
+
+![mlflow-chat-session-example](assets/mlflow-chat-session-example.png?raw=true)
