@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-openai-mlflow",
+  "name": "n8n-nodes-mlflow",
   "version": "0.1.0",
   "description": "n8n community node: MLflow Tracing + OpenAI-compatible LLM provider",
   "keywords": [

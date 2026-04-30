@@ -1,8 +1,8 @@
-# n8n-nodes-openai-mlflow
+# n8n-nodes-mlflow
 
 An n8n community node that integrates OpenAI-compatible chat models with **MLflow Tracing**, giving you full observability into every LLM call directly from your n8n workflows.
 
-npm package: [https://www.npmjs.com/package/n8n-nodes-openai-mlflow](https://www.npmjs.com/package/n8n-nodes-openai-mlflow)
+npm package: [https://www.npmjs.com/package/n8n-nodes-mlflow](https://www.npmjs.com/package/n8n-nodes-mlflow)
 
 ## Features
 
@@ -31,7 +31,7 @@ For **n8n v0.187+**, install directly from the UI:
 
 1. Go to **Settings → Community Nodes**
 2. Click **Install**
-3. Enter `n8n-nodes-openai-mlflow` in the npm package name field
+3. Enter `n8n-nodes-mlflow` in the npm package name field
 4. Agree to the risks of using community nodes
 5. Select **Install**
 
@@ -42,7 +42,7 @@ A preconfigured Docker setup is available in the `docker/` directory:
 1. Build the Docker image
     ```bash
     cd docker
-    docker build --progress=plain -f docker/Dockerfile -t n8n-nodes-openai-mlflow .
+    docker build --progress=plain -f docker/Dockerfile -t n8n-nodes-mlflow .
     ```
 2. Run the container
     ```bash
@@ -54,7 +54,7 @@ A preconfigured Docker setup is available in the `docker/` directory:
       -e N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true \
       -e N8N_RUNNERS_ENABLED=true \
       -v n8n_data:/home/node/.n8n \
-      n8n-nodes-openai-mlflow:latest
+      n8n-nodes-mlflow:latest
     ```
 
 You can now access n8n at http://localhost:5678
@@ -65,7 +65,7 @@ You can now access n8n at http://localhost:5678
 # Go to your n8n installation directory
 cd ~/.n8n
 # Install the node
-npm install n8n-nodes-openai-mlflow
+npm install n8n-nodes-mlflow
 # Restart n8n to apply the node
 n8n start
 ```

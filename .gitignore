@@ -9,4 +9,4 @@ yarn.lock
 package-lock.json
 .idea
 
-n8n-nodes-openai-mlflow-*.tgz
+n8n-nodes-mlflow-*.tgz
