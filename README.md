@@ -142,7 +142,7 @@ The node exposes MLflow tracing fields that attach structured context to every t
 - Compatible with:
   - OpenAI official API (`https://api.openai.com`)
   - Any OpenAI-compatible LLM (e.g. via LiteLLM, LocalAI, Azure OpenAI)
-  - MLflow Cloud, Databricks-hosted MLflow, and self-hosted MLflow instances
+  - Databricks-hosted MLflow, and self-hosted MLflow instances
 
 ## Resources
 
