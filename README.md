@@ -79,7 +79,6 @@ This credential authenticates your OpenAI-compatible LLM endpoint and configures
 | Field | Required | Description | Example |
 |-------|----------|-------------|---------|
 | OpenAI API Key | Yes | API key for your OpenAI-compatible endpoint | `sk-abc123...` |
-| OpenAI Organization ID | No | Organization ID if you belong to multiple orgs | `org-xyz789` |
 | OpenAI Base URL | No | Override the default endpoint base URL | `https://api.openai.com/v1` |
 
 ### MLflow Settings
