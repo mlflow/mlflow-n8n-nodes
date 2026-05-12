@@ -41,7 +41,6 @@ A preconfigured Docker setup is available in the `docker/` directory:
 
 1. Build the Docker image
     ```bash
-    cd docker
     docker build --progress=plain -f docker/Dockerfile -t n8n-nodes-mlflow .
     ```
 2. Run the container
